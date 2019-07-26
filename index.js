@@ -111,7 +111,7 @@ app.put('/api/courses/:id', (req, res) => {
     // Return the updated course
     course.name = req.body.name;
     res.send(course);
-})
+});
 
 app.delete('/api/courses/:id', (req, res) => {
     // Look up the course
