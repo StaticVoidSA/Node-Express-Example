@@ -34,7 +34,7 @@ app.use('/api/admin', (req, res, next) => {
     // ...
     res.send('Custom URL middleware <br /><br />URL: /api/admin');
     next();
-}) ;
+});
 
 const courses = [
     { id: 1, name: 'course1' },
