@@ -13,6 +13,7 @@ app.use(Express.json());
 app.use(Express.urlencoded({ extended: true })); 
 // To serve static files
 app.use(Express.static('public'));
+// Will set various HTTP headers to help protect the application
 app.use(helmet());
 
 // Configuration
