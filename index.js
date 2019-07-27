@@ -143,4 +143,11 @@ function validateCourse(course) {
 }
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(port, (err) => {
+    if (err) {
+        console.log("Error, cannot start server.");
+    }
+    else {
+        console.log(`Listening on port ${port}`);
+    }
+});
