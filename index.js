@@ -37,7 +37,7 @@ app.use('/api/admin', (req, res, next) => {
     next();
 });
 
-const courses = [
+var courses = [
     { id: 1, name: 'course1' },
     { id: 2, name: 'course2' },
     { id: 3, name: 'course3' },
@@ -53,7 +53,7 @@ app.get('/api/courses', (req, res) => {
 });
 
 app.get('/api/courses/:id', (req, res) => {
-    const course = courses.find(c => c.id === parseInt(req.params.id));
+    var course = courses.find(c => c.id === parseInt(req.params.id));
 
     if (!course)
     {
@@ -67,7 +67,7 @@ app.get('/api/courses/:id', (req, res) => {
 app.post('/api/courses', (req, res) => {
     // Validate
     // If invalid, return 400 - Bad request
-    const { error } = validateCourse(req.body); // result.error
+    var { error } = validateCourse(req.body); // result.error
    
     if (error) {
         // 400 Bad request
@@ -75,7 +75,7 @@ app.post('/api/courses', (req, res) => {
         return;
     }
     
-    const course = {
+    var course = {
         id: courses.length + 1,
         name: req.body.name
     };
@@ -87,7 +87,7 @@ app.post('/api/courses', (req, res) => {
 app.put('/api/courses/:id', (req, res) => {
     // Look up course
     // Return 404 if not found
-    const course = courses.find(c => c.id === parseInt(req.params.id));
+    var course = courses.find(c => c.id === parseInt(req.params.id));
 
     if (!course)
     {
@@ -99,7 +99,7 @@ app.put('/api/courses/:id', (req, res) => {
 
     // Validate
     // If invalid, return 400 - Bad request
-    const { error } = validateCourse(req.body); // result.error
+    var { error } = validateCourse(req.body); // result.error
    
     if (error) {
         // 400 Bad request
@@ -117,7 +117,7 @@ app.put('/api/courses/:id', (req, res) => {
 app.delete('/api/courses/:id', (req, res) => {
     // Look up the course
     // Not existing return 404
-    const course = courses.find(c => c.id === parseInt(req.params.id));
+    var course = courses.find(c => c.id === parseInt(req.params.id));
 
     if (!course)
     {
@@ -127,7 +127,7 @@ app.delete('/api/courses/:id', (req, res) => {
     }
 
     // Delete
-    const index = courses.indexOf(course);
+    var index = courses.indexOf(course);
     courses.splice(index, 1);
 
     // Return the same course
